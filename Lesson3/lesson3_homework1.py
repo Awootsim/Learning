@@ -3,7 +3,6 @@
 
 def modification(lst):
     lst[-1], lst[0] = lst[0], lst[-1]
-    lst = data[i]
     return lst
 
 # Ниже НИЧЕГО НЕ НАДО ИЗМЕНЯТЬ
