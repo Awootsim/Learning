@@ -2,8 +2,7 @@
 # В исходном списке минимум 2 элемента
 
 def modification(lst):
-    change = lst[0], lst[-1]
-    lst[-1], lst[0] = change
+    lst[-1], lst[0] = lst[0], lst[-1
     return lst
 
 # Ниже НИЧЕГО НЕ НАДО ИЗМЕНЯТЬ
