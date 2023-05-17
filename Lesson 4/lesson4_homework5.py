@@ -14,12 +14,14 @@
 # [4] => 1 вышел, 4 остался последним т.е. выжившим - это наш ответ survivor.
 
 def josephus_task(num_people, kill_num):
-    s = [i for i in range(1, num_people + 1)]
-    while len(s) > 1:
+
+    survivor_list = [i for i in range(1, num_people + 1)]
+    while len(survivor_list) > 1:
         for q in range(0, kill_num - 1):
-            s.append(s[q])
-        del s[:kill_num]
-    survivor = s[0]
+            survivor_list.append(survivor_list[q])
+        del survivor_list[:kill_num]
+    survivor = survivor_list[0]
+
     return survivor
 
 # Ниже НИЧЕГО НЕ НАДО ИЗМЕНЯТЬ
