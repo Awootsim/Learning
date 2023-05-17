@@ -7,7 +7,26 @@
 
 
 def repeats(our_str):
-    # Здесь нужно написать код
+    """
+    Программа, которая преобразует слово в строку формата "буква_номер повторения", где буква - буква слова, номер
+    повторения - номер сколько раз повторяется буква
+    :param our_str: Слово, которое обрабатываем
+    :return: Строка, формата "буква_номер повторения"
+    """
+    letter = []
+    num = []
+    counts = {}
+    new_str = ''
+    for i in our_str:
+        letter.append(i)
+    for char in our_str:
+        if char in counts:
+            counts[char] += 1
+        else:
+            counts[char] = 1
+        num.append(counts[char])
+    for i in range(len(num)):
+        new_str += letter[i] + '_' + str(num[i])
     return new_str
 
 # Ниже НИЧЕГО НЕ НАДО ИЗМЕНЯТЬ

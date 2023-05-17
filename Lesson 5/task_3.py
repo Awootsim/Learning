@@ -19,7 +19,25 @@
 
 
 def everything_for_your_cat(cats_data):
-    # Здесь нужно написать код
+    """
+    Программа оптимизирует данные о кошках и владельцах и формирует новый список, где основным ключом является Владелец,
+    а значение - кот и его возраст. При этом, программа находит владельцев, у которых несколько котов и объединяет их.
+    :param cats_data: Не оптимизированная книга котов и владельцев
+    :return: Новая, оптимизированная книга, формата Имя_покупателя Фамилия_покупателя: Кличка_котика1, Возраст; ...; Кличка_котикаN, Возраст\n
+    """
+    owners = {}
+    our_str = ""
+    for item in cats_data:
+        owner_name = item[2] + ' ' + item[3]
+        pet_name = item[0]
+        pet_age = item[1]
+        if owner_name in owners:
+            owners[owner_name].append(f"{pet_name}, {pet_age}")
+        else:
+            owners[owner_name] = [f"{pet_name}, {pet_age}"]
+    for owner, pets in owners.items():
+        pets_str = "; ".join(pets)
+        our_str += f"{owner}: {pets_str}\n"
     return our_str
 
 # Ниже НИЧЕГО НЕ НАДО ИЗМЕНЯТЬ
