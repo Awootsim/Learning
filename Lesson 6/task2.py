@@ -5,8 +5,16 @@
 # local_function должна изменить значение переменной msg на значение 2
 
 def global_function():
+  """
+  Вводит локальную переменную
+  :return: Возвращает функцию local_function()
+  """
   msg = 1
   def local_function():
+    """
+    Изменяет значение переменной msg
+    :return: Измененное значение msg
+    """
     nonlocal msg
     msg = 2
     return msg
