@@ -24,7 +24,53 @@
 # У класса должно быть СВОЙСТВО how_long, которое вычисляет время прохождения маршрута по формуле max_speed/(4*path)
 
 # Здесь пишем код
+class PublicTransport:
+    def __init__(self, brand, engine_power, year, color, max_speed):
+        self.brand = brand
+        self._engine_power = engine_power
+        self.year = year
+        self.color = color
+        self.max_speed = max_speed
 
+    @property
+    def info(self):
+        return f"Марка: {self.brand}\nЦвет: {self.color}\nГод выпуска: {self.year}\nМощность двигателя: {self._engine_power}"
+
+
+class Bus(PublicTransport):
+    def __init__(self, brand, engine_power, year, color, max_speed, passengers, park, fare):
+        super().__init__(brand, engine_power, year, color, max_speed)
+        self.passengers = passengers
+        self.__park = None
+        self._fare = fare
+        self.park = park
+
+    @property
+    def park(self):
+        return self.__park
+
+    @park.setter
+    def park(self, value):
+        assert value > 1000
+        assert value < 9999
+        self.__park = value
+
+    def get_fare(self):
+        return self._fare
+
+class Tram(PublicTransport):
+    def __init__(self, brand, engine_power, year, color, max_speed, route, path, fare):
+        super().__init__(brand, engine_power, year, color, max_speed)
+        self.__route = route
+        self.path = path
+        self._fare = fare
+
+    @property
+    def how_long(self):
+        return self.max_speed / (4 * self.path)
+
+    def get_fare(self):
+        return self._fare
 
 # Ниже НИЧЕГО НЕ НАДО ИЗМЕНЯТЬ
 transport = PublicTransport('Автомобиль', 500, 2040, 'Фиолетовый', 300)
