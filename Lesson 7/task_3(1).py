@@ -41,9 +41,8 @@ class Bus(PublicTransport):
     def __init__(self, brand, engine_power, year, color, max_speed, passengers, park, fare):
         super().__init__(brand, engine_power, year, color, max_speed)
         self.passengers = passengers
-        self.__park = None
         self._fare = fare
-        self.park = park
+        self.__park = park
 
     @property
     def park(self):
@@ -54,9 +53,6 @@ class Bus(PublicTransport):
         assert value > 1000
         assert value < 9999
         self.__park = value
-
-    def get_fare(self):
-        return self._fare
 
 class Tram(PublicTransport):
     def __init__(self, brand, engine_power, year, color, max_speed, route, path, fare):
@@ -69,8 +65,6 @@ class Tram(PublicTransport):
     def how_long(self):
         return self.max_speed / (4 * self.path)
 
-    def get_fare(self):
-        return self._fare
 
 # Ниже НИЧЕГО НЕ НАДО ИЗМЕНЯТЬ
 transport = PublicTransport('Автомобиль', 500, 2040, 'Фиолетовый', 300)

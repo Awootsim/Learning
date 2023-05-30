@@ -45,7 +45,6 @@ class PersonInfo:
         total_letter_count = sum(letter_counts[letter] for letter in top_letters)
 
         new_salary = 1337 * self.age * total_letter_count
-        print(new_salary)
         return new_salary
 # Ниже НИЧЕГО НЕ НАДО ИЗМЕНЯТЬ
 
