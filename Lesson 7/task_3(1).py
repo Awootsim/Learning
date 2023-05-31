@@ -25,7 +25,18 @@
 
 # Здесь пишем код
 class PublicTransport:
+    """
+    Основной класс PublicTransport
+    """
     def __init__(self, brand, engine_power, year, color, max_speed):
+        """
+        Инициализация объекта PublicTransport
+        :param brand: марка
+        :param engine_power: мощность двигателя
+        :param year: год выпуска
+        :param color: цвет
+        :param max_speed: максимальная скорость
+        """
         self.brand = brand
         self._engine_power = engine_power
         self.year = year
@@ -34,11 +45,28 @@ class PublicTransport:
 
     @property
     def info(self):
+        """
+        Свойство, возвращающее информацию о транспорте
+        """
         return f"Марка: {self.brand}\nЦвет: {self.color}\nГод выпуска: {self.year}\nМощность двигателя: {self._engine_power}"
 
 
 class Bus(PublicTransport):
+    """
+    Класс Bus, унаследованный от PublicTransport
+    """
     def __init__(self, brand, engine_power, year, color, max_speed, passengers, park, fare):
+        """
+        Инициализация объекта Bus
+        :param brand: марка
+        :param engine_power: мощность двигателя
+        :param year: год выпуска
+        :param color: цвет
+        :param max_speed: максимальная скорость
+        :param passengers: к-во пассажиров
+        :param park: парк приписки
+        :param fare: стоимость проезда
+        """
         super().__init__(brand, engine_power, year, color, max_speed)
         self.passengers = passengers
         self._fare = fare
@@ -46,16 +74,36 @@ class Bus(PublicTransport):
 
     @property
     def park(self):
+        """
+        Свойство, возвращающее парк приписки транспорта
+        """
         return self.__park
 
     @park.setter
     def park(self, value):
-        assert value > 1000
-        assert value < 9999
+        """
+        Проверка парка приписки автобуса, присвоение нового значения
+        """
+        assert value > 1000, "Значение должно быть больше 1000"
+        assert value < 9999, "Значение должно быть меньше 9999"
         self.__park = value
 
 class Tram(PublicTransport):
+    """
+    Класс Tram, унаследованный от PublicTransport
+    """
     def __init__(self, brand, engine_power, year, color, max_speed, route, path, fare):
+        """
+        Инициализация объекта Tram
+        :param brand: Марка
+        :param engine_power: Мощность
+        :param year: Год выпуска
+        :param color: Цвет
+        :param max_speed: Скорость
+        :param route: Маршрут
+        :param path: Длина маршрута
+        :param fare: стоимость проезда
+        """
         super().__init__(brand, engine_power, year, color, max_speed)
         self.__route = route
         self.path = path
@@ -63,6 +111,9 @@ class Tram(PublicTransport):
 
     @property
     def how_long(self):
+        """
+        Вычисляет время прохождения маршрута
+        """
         return self.max_speed / (4 * self.path)
 
 
