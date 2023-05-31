@@ -29,14 +29,14 @@ class Segment:
         x2, y2 = self.point2
         if (y1 == 0 and y2 == 0) or(y1 < 0 and y2 > 0) or (y1 > 0 and y2 < 0):
             return True
-        return False
+        else: return False
 
     def y_axis_intersection(self):
         x1, y1 = self.point1
         x2, y2 = self.point2
         if (x1 == 0 and x2 == 0) or (x1 < 0 and x2 > 0) or (x1 > 0 and x2 < 0):
             return True
-        return False
+        else: return False
 
 # Ниже НИЧЕГО НЕ НАДО ИЗМЕНЯТЬ
 
