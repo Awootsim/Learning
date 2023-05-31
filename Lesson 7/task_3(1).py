@@ -26,7 +26,7 @@
 # Здесь пишем код
 class PublicTransport:
     """
-    Основной класс PublicTransport
+    Базовый класс для описания транспорта
     """
     def __init__(self, brand, engine_power, year, color, max_speed):
         """
@@ -53,7 +53,7 @@ class PublicTransport:
 
 class Bus(PublicTransport):
     """
-    Класс Bus, унаследованный от PublicTransport
+    Класс представляющий автобус
     """
     def __init__(self, brand, engine_power, year, color, max_speed, passengers, park, fare):
         """
@@ -90,7 +90,7 @@ class Bus(PublicTransport):
 
 class Tram(PublicTransport):
     """
-    Класс Tram, унаследованный от PublicTransport
+    Класс представляющий трамай
     """
     def __init__(self, brand, engine_power, year, color, max_speed, route, path, fare):
         """
