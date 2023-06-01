@@ -19,9 +19,10 @@ def segment(point1, point2):
     try:
         x1, y1 = point1
         x2, y2 = point2
-        return x1 + y1 + x2 + y2
+        result = x1 + y1 + x2 + y2
     except Exception as e:
         return str(e)[::-1]
+    return result
 
 # Ниже НИЧЕГО НЕ НАДО ИЗМЕНЯТЬ
 

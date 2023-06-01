@@ -21,7 +21,6 @@ import unittest  # Не удалять
 class Trigon:
     """
     Класс проверяющий входные данные для треугольника
-    :param sides: Длинны сторон
     """
     def __init__(self, *sides):
         if len(sides) != 3:
@@ -37,7 +36,6 @@ class Trigon:
         if a + b <= c:
             raise Exception("Не треугольник")
 
-        self.sides = sides
 
 # Ниже НИЧЕГО НЕ НАДО ИЗМЕНЯТЬ
 

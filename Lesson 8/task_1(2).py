@@ -24,15 +24,15 @@ def treatment_sum(our_tuple):
     :return: Результат расчета или ошибка при неправильных данных
     """
     try:
-        if len(our_tuple) == 2:
-            result = our_tuple[0] + our_tuple[1]
-            return result
-        elif len(our_tuple) < 2:
-            return 'Недостаточно данных'
-        else:
-            raise Exception('Много данных')
+        result = our_tuple[0] + our_tuple[1]
     except TypeError:
         return 'Нельзя сложить эти данные'
+    except IndexError:
+        return 'Недостаточно данных'
+    if len(our_tuple) == 2:
+        return result
+    else:
+        raise Exception('Много данных')
 # Ниже НИЧЕГО НЕ НАДО ИЗМЕНЯТЬ
 
 
