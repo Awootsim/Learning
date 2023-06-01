@@ -18,6 +18,27 @@ import unittest  # Не удалять
 
 # Здесь пишем код
 
+class Trigon:
+    """
+    Класс проверяющий входные данные для треугольника
+    :param sides: Длинны сторон
+    """
+    def __init__(self, *sides):
+        if len(sides) != 3:
+            raise IndexError(f"Передано {len(sides)} аргументов, а ожидается 3")
+
+        for side in sides:
+            if not isinstance(side, (int, float)):
+                raise TypeError("Стороны должны быть числами")
+            if side <= 0:
+                raise ValueError("Стороны должны быть положительными")
+
+        a, b, c = sorted(sides)
+        if a + b <= c:
+            raise Exception("Не треугольник")
+
+        self.sides = sides
+
 # Ниже НИЧЕГО НЕ НАДО ИЗМЕНЯТЬ
 
 

@@ -17,7 +17,22 @@
 import unittest  # Не удалять
 
 # Здесь пишем код
-
+def treatment_sum(our_tuple):
+    """
+    Функция обрабатывает кортеж и выводи предупреждения при несоответствии условиям
+    :param our_tuple: Обрабатываемый кортеж
+    :return: Результат расчета или ошибка при неправильных данных
+    """
+    try:
+        if len(our_tuple) == 2:
+            result = our_tuple[0] + our_tuple[1]
+            return result
+        elif len(our_tuple) < 2:
+            return 'Недостаточно данных'
+        else:
+            raise Exception('Много данных')
+    except TypeError:
+        return 'Нельзя сложить эти данные'
 # Ниже НИЧЕГО НЕ НАДО ИЗМЕНЯТЬ
 
 
