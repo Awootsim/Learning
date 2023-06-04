@@ -11,6 +11,55 @@
 
 # Здесь пишем код
 
+import math
+
+class Segment:
+    """
+    Базовый класс Segment
+    """
+    def __init__(self, point1, point2):
+        """
+        Инициализация класса Segment
+        :param point1: Кортеж с координатами точки 1
+        :param point2: Кортеж с координатами точки 2
+        """
+        self.point1 = point1
+        self.point2 = point2
+
+    def length(self):
+        """
+        Функция, возвращающая длину отрезка
+        :return: Длина отрезка, округленная до 100-х
+        """
+        x1, y1 = self.point1
+        x2, y2 = self.point2
+        distance = math.sqrt((x2 - x1)**2 + (y2 - y1)**2)
+        return round(distance, 2)
+
+    def x_axis_intersection(self):
+        """
+        Функция, определяющая пересечение через X
+        :return: Положительный или отрицаиельный ответ
+        """
+        x1, y1 = self.point1
+        x2, y2 = self.point2
+        if (y1 == 0 and y2 == 0) or(y1 < 0 and y2 > 0) or (y1 > 0 and y2 < 0):
+            return True
+        else:
+            return False
+
+    def y_axis_intersection(self):
+        """
+        Функция, определяющая пересечение через Y
+        :return: Положительный или отрицаиельный ответ
+        """
+        x1, y1 = self.point1
+        x2, y2 = self.point2
+        if (x1 == 0 and x2 == 0) or (x1 < 0 and x2 > 0) or (x1 > 0 and x2 < 0):
+            return True
+        else:
+            return False
+
 # Ниже НИЧЕГО НЕ НАДО ИЗМЕНЯТЬ
 
 

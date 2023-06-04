@@ -22,7 +22,51 @@
 # 1337*32*9 = 385056
 
 # Здесь пишем код
+class PersonInfo:
+    """
+    Основной класс PersonInfo, информация о сотруднике
+    """
+    def __init__(self, full_name, age, *departments):
+        """
+        Инициализация класса
+        :param full_name: Полное имя
+        :param age: Возраст
+        :param departments: Подразделение
+        """
+        self.full_name = full_name
+        self.age = age
+        self.departments = departments
 
+    def short_name(self):
+        """
+        Функция, приводящая Имя и Фамилию к новому формату
+        :return: Фамилия и имя в формате Фамилия И.
+        """
+        first_name, last_name = self.full_name.split()
+        return f"{last_name} {first_name[0]}."
+
+    def path_deps(self):
+        """
+        Объединяет подразделение через -->
+        :return: Подразделение формата "Разработка --> УК --> Автотесты"
+        """
+        return " --> ".join(self.departments)
+
+    def new_salary(self):
+        """
+        Расчет новой зарплаты
+        :return: Сумма новой зарплаты
+        """
+        letter_counts = {}
+        for department in self.departments:
+            for letter in department:
+                letter_counts[letter] = letter_counts.get(letter, 0) + 1
+
+        top_letters = sorted(letter_counts, key=letter_counts.get, reverse=True)[:3]
+        total_letter_count = sum(letter_counts[letter] for letter in top_letters)
+
+        new_salary = 1337 * self.age * total_letter_count
+        return new_salary
 # Ниже НИЧЕГО НЕ НАДО ИЗМЕНЯТЬ
 
 
