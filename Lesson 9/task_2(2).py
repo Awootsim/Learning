@@ -31,6 +31,38 @@
 # Реализовать без подключения новых модулей и сторонних библиотек.
 
 
-import datetime
+
 
 # Здесь пишем код
+
+import datetime
+
+def func_log(file_log='log.txt'):
+    """
+    Декоратор для записи вызовов функции в лог файл
+    :param file_log: Путь до файла
+    """
+    def decorator(func):
+        def wrapper(*args, **kwargs):
+            """
+            Функция, записывающая в лог-файл время вызова
+            """
+            with open(file_log, 'a', encoding="utf-8") as log_file:
+                log_entry = f"{func.__name__} вызвана {datetime.datetime.now().strftime('%d.%m %H:%M:%S')}\n"
+                log_file.write(log_entry)
+            return func(*args, **kwargs)
+        return wrapper
+    return decorator
+
+
+@func_log()
+def func1():
+    print("Тест1")
+
+@func_log(file_log='func2.txt')
+def func2():
+    print("Тест2")
+
+func1()
+func2()
+func1()
