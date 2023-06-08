@@ -15,12 +15,16 @@ def all_division(*arg1):
     for i in arg1[1:]:
         division /= i
     return division
+
+
 @pytest.mark.smoke
 def test_division_first():
     """
     Проверка правильности деления
     """
     assert all_division(2, 2) == 1
+
+
 @pytest.mark.smoke
 def test_division_second():
     """
@@ -28,11 +32,13 @@ def test_division_second():
     """
     assert all_division(2, 2, 2) == 0.5
 
+
 def test_division_third():
     """
     Проверка правильности деления с отрицательными аргументами
     """
     assert all_division(-100000, 5, 10) == -2000
+
 
 @pytest.mark.negative
 def test_division_fourth():
@@ -43,6 +49,7 @@ def test_division_fourth():
         all_division(-100000, "5", 10)
 
     assert str(exc_info.value) == "unsupported operand type(s) for /=: 'int' and 'str'"
+
 
 @pytest.mark.negative
 def test_division_fifth():

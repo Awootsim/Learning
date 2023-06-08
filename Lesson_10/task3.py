@@ -23,4 +23,3 @@ def test_division(args, expected_result):
     Проверка деления с параметрами
     """
     assert all_division(*args) == expected_result
-

@@ -4,6 +4,7 @@
 
 import pytest
 
+
 @pytest.mark.usefixtures("class_fixture")
 class TestMyClass:
     """
