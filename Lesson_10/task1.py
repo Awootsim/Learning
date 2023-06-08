@@ -17,3 +17,16 @@ import random
 
 
 # Здесь пишем код
+import string
+
+def generate_random_name():
+    """
+    Функция генерирует два слова из случайных латинских букв
+    """
+    while True:
+        word1 = ''.join(random.choices(string.ascii_lowercase, k=random.randint(1, 15)))
+        word2 = ''.join(random.choices(string.ascii_lowercase, k=random.randint(1, 15)))
+        yield f"{word1} {word2}"
+
+gen = generate_random_name()
+print(next(gen))
