@@ -31,11 +31,10 @@
 # Реализовать без подключения новых модулей и сторонних библиотек.
 
 
-
-
 # Здесь пишем код
 
 import datetime
+
 
 def func_log(file_log='log.txt'):
     """
@@ -57,11 +56,19 @@ def func_log(file_log='log.txt'):
 
 @func_log()
 def func1():
+    """
+    Функция для теста декоратора @func_log, выводит "Тест1"
+    """
     print("Тест1")
+
 
 @func_log(file_log='func2.txt')
 def func2():
+    """
+    Функция для теста декоратора @func_log, выводит "Тест2", лог загружается в func2.txt
+    """
     print("Тест2")
+
 
 func1()
 func2()
