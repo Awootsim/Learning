@@ -19,6 +19,8 @@ import random
 # Здесь пишем код
 import string
 
+word1 = string
+word2 = string
 
 def generate_random_name():
     """
