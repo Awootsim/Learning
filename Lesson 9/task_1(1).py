@@ -4,6 +4,11 @@
 
 
 # Здесь пишем код
+with open('test_file/task1_data.txt', 'r', encoding="utf-8") as old, \
+        open('test_file/task1_answer.txt', 'w', encoding="utf-8") as new:
+    for line in old:
+        new_line = ''.join(i for i in line if not i.isdigit())
+        new.write(new_line)
 
 # Ниже НИЧЕГО НЕ НАДО ИЗМЕНЯТЬ
 

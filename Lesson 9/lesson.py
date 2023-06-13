@@ -12,13 +12,13 @@
 # #
 # # print(abs_pat1.is_dir())
 # #
-# # files = Path.cwd().glob('*.py')
-# # for i in files:
+# # test_file = Path.cwd().glob('*.py')
+# # for i in test_file:
 # #     print(i)
 #
 # # f = open('testfile.txt')
 # # print(*f)
-# # f2 = open(r'D:\Pyt\Learning\Lesson 9\files\testfile.txt', encoding='utf-8')
+# # f2 = open(r'D:\Pyt\Learning\Lesson 9\test_file\testfile.txt', encoding='utf-8')
 # # print(f2.read(4))
 # # print(f2.read(4))
 # # try:

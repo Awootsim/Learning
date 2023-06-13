@@ -4,3 +4,15 @@
 
 import pytest
 
+
+@pytest.mark.usefixtures("class_fixture")
+class TestMyClass:
+    """
+    Класс для тестов с фикстурами
+    """
+    @pytest.mark.usefixtures("test_fixture")
+    def test_one(self):
+        assert 1 == 1
+
+    def test_two(self):
+        assert 2 == 2
