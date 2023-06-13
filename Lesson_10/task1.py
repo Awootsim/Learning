@@ -19,13 +19,15 @@ import random
 # Здесь пишем код
 import string
 
-word1 = string
-word2 = string
 
 def generate_random_name():
     """
     Функция генерирует два слова из случайных латинских букв
     """
+
+    word1 = ""
+    word2 = ""
+
     while True:
         word1 = ''.join(random.choices(string.ascii_lowercase, k=random.randint(1, 15)))
         word2 = ''.join(random.choices(string.ascii_lowercase, k=random.randint(1, 15)))
